@@ -1,13 +1,13 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "../contracts/YourContract.sol";
 import "./DeployHelpers.s.sol";
+import {BasicNft} from "../contracts/BasicNft.sol";
 
-contract DeployScript is ScaffoldETHDeploy {
+contract DeployBasicNft is ScaffoldETHDeploy {
     error InvalidPrivateKey(string);
 
-    function run() external {
+    function run() external returns (BasicNft) {
         uint256 deployerPrivateKey = setupLocalhostEnv();
         if (deployerPrivateKey == 0) {
             revert InvalidPrivateKey(
@@ -15,13 +15,12 @@ contract DeployScript is ScaffoldETHDeploy {
             );
         }
         vm.startBroadcast(deployerPrivateKey);
-        YourContract yourContract = new YourContract(
-            vm.addr(deployerPrivateKey)
-        );
+        BasicNft basicNft = new BasicNft();
+
         console.logString(
             string.concat(
-                "YourContract deployed at: ",
-                vm.toString(address(yourContract))
+                "basicNft deployed at: ",
+                vm.toString(address(basicNft))
             )
         );
         vm.stopBroadcast();
@@ -32,6 +31,8 @@ contract DeployScript is ScaffoldETHDeploy {
          * This function should be called last.
          */
         exportDeployments();
+
+        return basicNft;
     }
 
     function test() public {}
