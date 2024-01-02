@@ -5,6 +5,12 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract BasicNft is ERC721 {
+    event Minted(
+        address indexed mintee,
+        uint256 indexed tokenId,
+        string tokenUri
+    );
+
     uint256 private s_tokenCounter;
     mapping(uint256 => string) private s_tokenIdToUri;
 
@@ -13,8 +19,12 @@ contract BasicNft is ERC721 {
     }
 
     function mintNft(string memory tokenUri) public {
+        //checks
+        // effects
         s_tokenIdToUri[s_tokenCounter] = tokenUri;
         _safeMint(msg.sender, s_tokenCounter);
+        emit Minted(msg.sender, s_tokenCounter, tokenUri);
+        // interactions
         s_tokenCounter++;
     }
 

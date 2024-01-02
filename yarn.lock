@@ -6174,6 +6174,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"basid-nft@workspace:packages/basid-nft":
+  version: 0.0.0-use.local
+  resolution: "basid-nft@workspace:packages/basid-nft"
+  dependencies:
+    "@graphprotocol/graph-cli": 0.64.1
+    "@graphprotocol/graph-ts": 0.32.0
+    matchstick-as: 0.5.0
+  languageName: unknown
+  linkType: soft
+
 "bcrypt-pbkdf@npm:^1.0.0":
   version: 1.0.2
   resolution: "bcrypt-pbkdf@npm:1.0.2"
@@ -16203,16 +16213,6 @@ __metadata:
   checksum: 523a33b38603492547e861b98e29c873939b04e15fbe5ef16132c6f1e15958126647983c7d4675325038b428a5e91183d996e90141b18bdd1bbadf6e2c45b2fa
   languageName: node
   linkType: hard
-
-"subgraph@workspace:packages/subgraph":
-  version: 0.0.0-use.local
-  resolution: "subgraph@workspace:packages/subgraph"
-  dependencies:
-    "@graphprotocol/graph-cli": 0.64.1
-    "@graphprotocol/graph-ts": 0.32.0
-    matchstick-as: 0.5.0
-  languageName: unknown
-  linkType: soft
 
 "sucrase@npm:^3.32.0":
   version: 3.35.0

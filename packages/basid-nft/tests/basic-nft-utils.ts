@@ -3,12 +3,9 @@ import { ethereum, Address, BigInt } from "@graphprotocol/graph-ts"
 import {
   Approval,
   ApprovalForAll,
-  CreatePenguin,
-  OwnershipTransferred,
-  Paused,
-  Transfer,
-  Unpaused
-} from "../generated/PudgyPenguins/PudgyPenguins"
+  Minted,
+  Transfer
+} from "../generated/BasicNft/BasicNft"
 
 export function createApprovalEvent(
   owner: Address,
@@ -57,51 +54,29 @@ export function createApprovalForAllEvent(
   return approvalForAllEvent
 }
 
-export function createCreatePenguinEvent(id: BigInt): CreatePenguin {
-  let createPenguinEvent = changetype<CreatePenguin>(newMockEvent())
+export function createMintedEvent(
+  mintee: Address,
+  tokenId: BigInt,
+  tokenUri: string
+): Minted {
+  let mintedEvent = changetype<Minted>(newMockEvent())
 
-  createPenguinEvent.parameters = new Array()
+  mintedEvent.parameters = new Array()
 
-  createPenguinEvent.parameters.push(
-    new ethereum.EventParam("id", ethereum.Value.fromUnsignedBigInt(id))
+  mintedEvent.parameters.push(
+    new ethereum.EventParam("mintee", ethereum.Value.fromAddress(mintee))
   )
-
-  return createPenguinEvent
-}
-
-export function createOwnershipTransferredEvent(
-  previousOwner: Address,
-  newOwner: Address
-): OwnershipTransferred {
-  let ownershipTransferredEvent = changetype<OwnershipTransferred>(
-    newMockEvent()
-  )
-
-  ownershipTransferredEvent.parameters = new Array()
-
-  ownershipTransferredEvent.parameters.push(
+  mintedEvent.parameters.push(
     new ethereum.EventParam(
-      "previousOwner",
-      ethereum.Value.fromAddress(previousOwner)
+      "tokenId",
+      ethereum.Value.fromUnsignedBigInt(tokenId)
     )
   )
-  ownershipTransferredEvent.parameters.push(
-    new ethereum.EventParam("newOwner", ethereum.Value.fromAddress(newOwner))
+  mintedEvent.parameters.push(
+    new ethereum.EventParam("tokenUri", ethereum.Value.fromString(tokenUri))
   )
 
-  return ownershipTransferredEvent
-}
-
-export function createPausedEvent(account: Address): Paused {
-  let pausedEvent = changetype<Paused>(newMockEvent())
-
-  pausedEvent.parameters = new Array()
-
-  pausedEvent.parameters.push(
-    new ethereum.EventParam("account", ethereum.Value.fromAddress(account))
-  )
-
-  return pausedEvent
+  return mintedEvent
 }
 
 export function createTransferEvent(
@@ -127,16 +102,4 @@ export function createTransferEvent(
   )
 
   return transferEvent
-}
-
-export function createUnpausedEvent(account: Address): Unpaused {
-  let unpausedEvent = changetype<Unpaused>(newMockEvent())
-
-  unpausedEvent.parameters = new Array()
-
-  unpausedEvent.parameters.push(
-    new ethereum.EventParam("account", ethereum.Value.fromAddress(account))
-  )
-
-  return unpausedEvent
 }

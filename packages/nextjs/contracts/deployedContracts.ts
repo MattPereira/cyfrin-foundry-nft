@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     BasicNft: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
       abi: [
         {
           type: "constructor",
@@ -328,6 +328,31 @@ const deployedContracts = {
               type: "bool",
               indexed: false,
               internalType: "bool",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Minted",
+          inputs: [
+            {
+              name: "mintee",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "tokenId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "tokenUri",
+              type: "string",
+              indexed: false,
+              internalType: "string",
             },
           ],
           anonymous: false,
@@ -479,7 +504,7 @@ const deployedContracts = {
   },
   11155111: {
     BasicNft: {
-      address: "0x8e3AF123c5b1EDc7F79262c01e7a4f67170A1E94",
+      address: "0xB0aa26923573DaAe9B38BB62462168D908EB4EF9",
       abi: [
         {
           type: "constructor",
@@ -800,6 +825,31 @@ const deployedContracts = {
               type: "bool",
               indexed: false,
               internalType: "bool",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Minted",
+          inputs: [
+            {
+              name: "mintee",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "tokenId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "tokenUri",
+              type: "string",
+              indexed: false,
+              internalType: "string",
             },
           ],
           anonymous: false,

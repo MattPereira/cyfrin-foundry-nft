@@ -1,0 +1,29 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: BasicNft
+    network: sepolia
+    source:
+      address: "0xB0aa26923573DaAe9B38BB62462168D908EB4EF9"
+      abi: BasicNft
+      startBlock: 5001807
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - Minted
+        - Transfer
+      abis:
+        - name: BasicNft
+          file: ./abis/BasicNft.json
+      eventHandlers:
+        - event: Minted(indexed address,indexed uint256,string)
+          handler: handleMinted
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/basic-nft.ts
