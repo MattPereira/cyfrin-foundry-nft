@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     BasicNft: {
-      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
       abi: [
         {
           type: "constructor",
@@ -502,7 +502,7 @@ const deployedContracts = {
       },
     },
     BuidlGuidlNft: {
-      address: "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
+      address: "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
       abi: [
         {
           type: "constructor",
@@ -1033,6 +1033,22 @@ const deployedContracts = {
           inputs: [
             {
               name: "tokenId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+        },
+        {
+          type: "error",
+          name: "StringsInsufficientHexLength",
+          inputs: [
+            {
+              name: "value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "length",
               type: "uint256",
               internalType: "uint256",
             },
