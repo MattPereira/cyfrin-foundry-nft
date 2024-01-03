@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     BasicNft: {
-      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
+      address: "0xc5a5C42992dECbae36851359345FE25997F5C42d",
       abi: [
         {
           type: "constructor",
@@ -502,7 +502,7 @@ const deployedContracts = {
       },
     },
     BuidlGuidlNft: {
-      address: "0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",
+      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933",
       abi: [
         {
           type: "constructor",
@@ -771,6 +771,11 @@ const deployedContracts = {
           type: "function",
           name: "svgToImageURI",
           inputs: [
+            {
+              name: "tokenId",
+              type: "uint256",
+              internalType: "uint256",
+            },
             {
               name: "memberAddr",
               type: "address",
