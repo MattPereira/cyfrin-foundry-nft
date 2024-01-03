@@ -3,18 +3,18 @@
 pragma solidity ^0.8.0;
 
 import {Test} from "forge-std/Test.sol";
-import {DeployBasicNft} from "../script/Deploy.s.sol";
+import {DeployScript} from "../script/Deploy.s.sol";
 import {BasicNft} from "../contracts/BasicNft.sol";
 
 contract BasicNftTest is Test {
-    DeployBasicNft public deployer;
+    DeployScript public deployer;
     BasicNft public basicNft;
     address public USER = makeAddr("user");
     string public constant FOX =
         "ipfs://bafybeiexgaqxnqxocgwlfryh2mxdqr2imxsfctsjljljyosmekw3w3scne";
 
     function setUp() public {
-        deployer = new DeployBasicNft();
+        deployer = new DeployScript();
         basicNft = deployer.run();
     }
 
