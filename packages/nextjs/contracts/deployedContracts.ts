@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     BasicNft: {
-      address: "0xc5a5C42992dECbae36851359345FE25997F5C42d",
+      address: "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
       abi: [
         {
           type: "constructor",
@@ -502,7 +502,7 @@ const deployedContracts = {
       },
     },
     BuidlGuidlNft: {
-      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933",
+      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
       abi: [
         {
           type: "constructor",
@@ -567,19 +567,6 @@ const deployedContracts = {
         },
         {
           type: "function",
-          name: "getSvgHeader",
-          inputs: [],
-          outputs: [
-            {
-              name: "",
-              type: "string",
-              internalType: "string",
-            },
-          ],
-          stateMutability: "pure",
-        },
-        {
-          type: "function",
           name: "isApprovedForAll",
           inputs: [
             {
@@ -598,44 +585,6 @@ const deployedContracts = {
               name: "",
               type: "bool",
               internalType: "bool",
-            },
-          ],
-          stateMutability: "view",
-        },
-        {
-          type: "function",
-          name: "memberToBuildCount",
-          inputs: [
-            {
-              name: "",
-              type: "address",
-              internalType: "address",
-            },
-          ],
-          outputs: [
-            {
-              name: "",
-              type: "string",
-              internalType: "string",
-            },
-          ],
-          stateMutability: "view",
-        },
-        {
-          type: "function",
-          name: "memberToEnsName",
-          inputs: [
-            {
-              name: "",
-              type: "address",
-              internalType: "address",
-            },
-          ],
-          outputs: [
-            {
-              name: "",
-              type: "string",
-              internalType: "string",
             },
           ],
           stateMutability: "view",
@@ -675,6 +624,30 @@ const deployedContracts = {
               name: "",
               type: "address",
               internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "s_memberToData",
+          inputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "ensName",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "buildCount",
+              type: "uint8",
+              internalType: "uint8",
             },
           ],
           stateMutability: "view",
@@ -776,11 +749,6 @@ const deployedContracts = {
               type: "uint256",
               internalType: "uint256",
             },
-            {
-              name: "memberAddr",
-              type: "address",
-              internalType: "address",
-            },
           ],
           outputs: [
             {
@@ -800,25 +768,6 @@ const deployedContracts = {
               name: "",
               type: "string",
               internalType: "string",
-            },
-          ],
-          stateMutability: "view",
-        },
-        {
-          type: "function",
-          name: "tokenIdToMemberAddress",
-          inputs: [
-            {
-              name: "",
-              type: "uint256",
-              internalType: "uint256",
-            },
-          ],
-          outputs: [
-            {
-              name: "",
-              type: "address",
-              internalType: "address",
             },
           ],
           stateMutability: "view",

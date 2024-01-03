@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const { data: base64encodedTokenUri } = useScaffoldContractRead({
     contractName: "BuidlGuidlNft",
     functionName: "tokenURI",
-    args: [2n],
+    args: [0n],
   });
 
   useEffect(() => {
